@@ -1,0 +1,2 @@
+# ericpoirier.ca
+Blog website
