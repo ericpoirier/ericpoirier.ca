@@ -1,0 +1,49 @@
+{{ define "main" }}
+<div class="site-wrapper">
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <!-- LEFT: Text -->
+    <div class="hero-left">
+      <h1 class="hero-headline" id="hero-headline">Building the web.<br>Sharing what I learn.</h1>
+      <p class="hero-subtext">
+        I'm Eric Poirier, Web Development Team Lead @&nbsp;<span class="highlight-tag">Eclipse Foundation</span>. I write about web development, open source, and the things that help us build better.
+      </p>
+    </div>
+
+    <!-- RIGHT: Pixel Art -->
+    <div class="hero-right">
+      <!-- Developer pixel art figure -->
+      <div class="pixel-coder-container">
+        {{ with resources.Get "images/developer-pixel.webp" }}
+          <img src="{{ .RelPermalink }}" alt="Developer at laptop" class="pixel-coder-img">
+        {{ end }}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== LATEST ARTICLES ===== -->
+  <section class="section-articles">
+    <h2 class="section-heading">[ latest articles ]</h2>
+    <div class="articles-grid">
+      {{ range first 3 (where .Site.RegularPages "Section" "articles") }}
+      <article class="article-card">
+        <div class="article-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></div>
+        <div class="article-meta">{{ .Date.Format "2006-01-02" }}</div>
+        <div class="article-description">{{ .Description }}</div>
+        <div class="article-tags">
+          {{ range .Params.tags }}
+          <a href="{{ "/tags/" | relURL }}{{ . | urlize }}" class="tag-chip">[{{ . }}]</a>
+          {{ end }}
+        </div>
+      </article>
+      {{ end }}
+    </div>
+    <div class="all-articles-link">
+      <a href="{{ "/articles" | relURL }}" class="btn">[ All Articles → ]</a>
+    </div>
+  </section>
+
+</div>
+{{ end }}

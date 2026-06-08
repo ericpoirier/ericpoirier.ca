@@ -1,0 +1,14 @@
+{
+  "name": "ericpoirier-ca",
+  "version": "1.0.0",
+  "description": "Eric Poirier's personal blog",
+  "scripts": {
+    "build:css": "lessc themes/pixel/assets/less/main.less themes/pixel/static/css/main.css",
+    "watch:css": "lessc --watch themes/pixel/assets/less/main.less themes/pixel/static/css/main.css",
+    "dev": "lessc --watch themes/pixel/assets/less/main.less themes/pixel/static/css/main.css & hugo server -D",
+    "build": "npm run build:css && hugo --minify"
+  },
+  "dependencies": {
+    "less": "^4.2.0"
+  }
+}

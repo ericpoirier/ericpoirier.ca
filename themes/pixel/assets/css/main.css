@@ -1,0 +1,985 @@
+@import "tailwindcss";
+
+@layer base {
+  @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+    border-radius: 0 !important;
+  }
+
+  :root {
+    --black: #1d1d1d;
+    --white: #e6e5e2;
+    --off-white: #ebebeb;
+  }
+
+  html {
+    background-color: var(--white);
+    color: var(--black);
+    font-family: 'Space Mono', monospace;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  body {
+    background-color: var(--white);
+    color: var(--black);
+    margin: 0;
+    padding: 0;
+    font-family: 'Space Mono', monospace;
+  }
+
+  a {
+    color: var(--black);
+    text-decoration: underline;
+  }
+
+  a:hover {
+    background-color: var(--black);
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-top: 0;
+  }
+
+  code {
+    font-family: 'Space Mono', monospace;
+    background-color: var(--black);
+    color: var(--white);
+    padding: 2px 6px;
+    font-size: 0.875em;
+  }
+
+  pre {
+    background-color: var(--black);
+    color: var(--white);
+    padding: 1.5rem;
+    overflow-x: auto;
+    box-shadow: 4px 4px 0 0 var(--black);
+    border: 1px solid var(--black);
+    margin: 1.5rem 0;
+  }
+
+  pre code {
+    background: none;
+    padding: 0;
+    color: var(--white);
+  }
+
+  hr {
+    border: none;
+    border-top: 2px solid var(--black);
+    margin: 0;
+  }
+
+  blockquote {
+    border-left: 4px solid var(--black);
+    margin: 1.5rem 0;
+    padding-left: 1.5rem;
+    font-style: italic;
+  }
+
+  img {
+    max-width: 100%;
+  }
+}
+
+@layer components {
+  /* ============================================================
+     LAYOUT
+  ============================================================ */
+  .site-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* ============================================================
+     HEADER / NAV
+  ============================================================ */
+  .site-header {
+    padding: 1.5rem 0 0;
+  }
+
+  .site-header nav {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+  }
+
+  .site-name {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+    color: var(--black);
+    display: block;
+    white-space: pre;
+  }
+
+  .site-name:hover {
+    background: none;
+    color: var(--black);
+  }
+
+  .nav-center {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding-top: 0.5rem;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .nav-center a {
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    padding: 0.25rem 0;
+  }
+
+  .nav-center a:hover {
+    background-color: var(--black);
+    color: var(--white);
+    padding: 0.25rem 0.5rem;
+  }
+
+  .nav-right {
+    padding-top: 0.5rem;
+    font-size: 1.25rem;
+  }
+
+  .nav-right a {
+    text-decoration: none;
+  }
+
+  .nav-right a:hover {
+    background: none;
+    color: var(--black);
+  }
+
+  .nav-hr {
+    border: none;
+    border-top: 2px solid var(--black);
+    margin: 0;
+  }
+
+  /* ============================================================
+     FOOTER
+  ============================================================ */
+  .site-footer {
+    border-top: 2px solid var(--black);
+    padding: 1.5rem 0;
+    margin-top: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .site-footer a {
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  .footer-tagline {
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    font-size: 0.875rem;
+  }
+
+  /* ============================================================
+     HERO
+  ============================================================ */
+  .hero {
+    padding: 4rem 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  .hero-headline {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.05;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-headline.cursor-active::after {
+    content: '_';
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  .hero-subtext {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    max-width: 480px;
+  }
+
+  .highlight-tag {
+    background-color: var(--black);
+    color: var(--white);
+    padding: 1px 6px;
+    font-weight: 700;
+  }
+
+  .hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  /* ============================================================
+     BUTTONS
+  ============================================================ */
+  .btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--black);
+    background: var(--white);
+    border: 2px solid var(--black);
+    box-shadow: 3px 3px 0 0 var(--black);
+    cursor: pointer;
+    transition: box-shadow 0.1s, transform 0.1s;
+    letter-spacing: 0.02em;
+  }
+
+  .btn:hover {
+    box-shadow: 1px 1px 0 0 var(--black);
+    transform: translate(2px, 2px);
+    background: var(--white);
+    color: var(--black);
+  }
+
+  .btn:active {
+    box-shadow: 0 0 0 0 var(--black);
+    transform: translate(3px, 3px);
+  }
+
+  /* ============================================================
+     HERO RIGHT COLUMN
+  ============================================================ */
+  .hero-right {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .hero-right-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+  }
+
+  .scroll-vertical {
+    position: absolute;
+    right: -1rem;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    white-space: nowrap;
+  }
+
+  .hero-tagline {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    align-self: flex-end;
+  }
+
+  /* ============================================================
+     PIXEL ART: BRACKETS { }
+  ============================================================ */
+  .pixel-brackets-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+
+  .pixel-brace {
+    position: relative;
+    width: 1px;
+    height: 1px;
+    flex-shrink: 0;
+  }
+
+  /* Left curly brace { — 8px wide x 32px tall, each px = 6px */
+  .pixel-brace-left {
+    box-shadow:
+      /* top cap */
+      12px 0px 0 4px var(--black),
+      18px 0px 0 4px var(--black),
+      24px 0px 0 4px var(--black),
+      6px 6px 0 4px var(--black),
+      /* upper shaft */
+      6px 12px 0 4px var(--black),
+      6px 18px 0 4px var(--black),
+      /* notch left */
+      0px 24px 0 4px var(--black),
+      /* lower shaft */
+      6px 30px 0 4px var(--black),
+      6px 36px 0 4px var(--black),
+      6px 42px 0 4px var(--black),
+      /* bottom cap */
+      12px 48px 0 4px var(--black),
+      18px 48px 0 4px var(--black),
+      24px 48px 0 4px var(--black),
+      6px 48px 0 4px var(--black);
+  }
+
+  /* Right curly brace } */
+  .pixel-brace-right {
+    box-shadow:
+      0px 0px 0 4px var(--black),
+      6px 0px 0 4px var(--black),
+      12px 0px 0 4px var(--black),
+      18px 6px 0 4px var(--black),
+      18px 12px 0 4px var(--black),
+      18px 18px 0 4px var(--black),
+      24px 24px 0 4px var(--black),
+      18px 30px 0 4px var(--black),
+      18px 36px 0 4px var(--black),
+      18px 42px 0 4px var(--black),
+      0px 48px 0 4px var(--black),
+      6px 48px 0 4px var(--black),
+      12px 48px 0 4px var(--black),
+      18px 48px 0 4px var(--black);
+  }
+
+  .pixel-brackets-text {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-align: center;
+    line-height: 1.8;
+    padding: 0 1rem;
+  }
+
+  /* ============================================================
+     PIXEL ART: CODER FIGURE
+  ============================================================ */
+  .pixel-coder-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .pixel-coder-img {
+    width: 100%;
+    height: auto;
+    max-width: 360px;
+    image-rendering: pixelated;
+  }
+
+  /*
+    Pixel coder: ~24x28 grid at 5px per pixel
+    Person sitting at laptop with coffee mug
+    Coordinates: (col, row) * 5px
+    Head: cols 10-13, rows 0-3
+    Body/shoulders: cols 8-15, rows 4-8
+    Arms: cols 6-7 rows 5-7, cols 16-17 rows 5-7
+    Table: cols 4-20, row 9
+    Laptop base: cols 6-18, rows 10-12
+    Laptop screen: cols 7-17, rows 6-9 (tilted up - simplified as vertical)
+    Coffee: cols 3-5, rows 7-9
+  */
+  .pixel-coder {
+    position: relative;
+    width: 1px;
+    height: 1px;
+  }
+
+  .pixel-coder {
+    box-shadow:
+      /* Head */
+      50px 0px 0 4px var(--black),
+      55px 0px 0 4px var(--black),
+      60px 0px 0 4px var(--black),
+      65px 0px 0 4px var(--black),
+      45px 5px 0 4px var(--black),
+      70px 5px 0 4px var(--black),
+      45px 10px 0 4px var(--black),
+      70px 10px 0 4px var(--black),
+      45px 15px 0 4px var(--black),
+      50px 15px 0 4px var(--black),
+      55px 15px 0 4px var(--black),
+      60px 15px 0 4px var(--black),
+      65px 15px 0 4px var(--black),
+      70px 15px 0 4px var(--black),
+      /* Neck */
+      55px 20px 0 4px var(--black),
+      60px 20px 0 4px var(--black),
+      /* Shoulders/torso */
+      35px 25px 0 4px var(--black),
+      40px 25px 0 4px var(--black),
+      45px 25px 0 4px var(--black),
+      50px 25px 0 4px var(--black),
+      55px 25px 0 4px var(--black),
+      60px 25px 0 4px var(--black),
+      65px 25px 0 4px var(--black),
+      70px 25px 0 4px var(--black),
+      75px 25px 0 4px var(--black),
+      80px 25px 0 4px var(--black),
+      35px 30px 0 4px var(--black),
+      80px 30px 0 4px var(--black),
+      /* Arms reaching forward */
+      30px 35px 0 4px var(--black),
+      85px 35px 0 4px var(--black),
+      25px 40px 0 4px var(--black),
+      90px 40px 0 4px var(--black),
+      20px 45px 0 4px var(--black),
+      95px 45px 0 4px var(--black),
+      /* Desk/table surface */
+      0px 50px 0 4px var(--black),
+      5px 50px 0 4px var(--black),
+      10px 50px 0 4px var(--black),
+      15px 50px 0 4px var(--black),
+      20px 50px 0 4px var(--black),
+      25px 50px 0 4px var(--black),
+      30px 50px 0 4px var(--black),
+      35px 50px 0 4px var(--black),
+      40px 50px 0 4px var(--black),
+      45px 50px 0 4px var(--black),
+      50px 50px 0 4px var(--black),
+      55px 50px 0 4px var(--black),
+      60px 50px 0 4px var(--black),
+      65px 50px 0 4px var(--black),
+      70px 50px 0 4px var(--black),
+      75px 50px 0 4px var(--black),
+      80px 50px 0 4px var(--black),
+      85px 50px 0 4px var(--black),
+      90px 50px 0 4px var(--black),
+      95px 50px 0 4px var(--black),
+      100px 50px 0 4px var(--black),
+      105px 50px 0 4px var(--black),
+      110px 50px 0 4px var(--black),
+      /* Laptop screen (raised) */
+      30px 20px 0 4px var(--black),
+      35px 20px 0 4px var(--black),
+      /* Screen frame top */
+      90px 15px 0 4px var(--black),
+      95px 15px 0 4px var(--black),
+      100px 15px 0 4px var(--black),
+      105px 15px 0 4px var(--black),
+      110px 15px 0 4px var(--black),
+      /* Screen sides */
+      85px 20px 0 4px var(--black),
+      115px 20px 0 4px var(--black),
+      85px 25px 0 4px var(--black),
+      115px 25px 0 4px var(--black),
+      85px 30px 0 4px var(--black),
+      115px 30px 0 4px var(--black),
+      85px 35px 0 4px var(--black),
+      115px 35px 0 4px var(--black),
+      85px 40px 0 4px var(--black),
+      115px 40px 0 4px var(--black),
+      85px 45px 0 4px var(--black),
+      115px 45px 0 4px var(--black),
+      /* Screen bottom/hinge */
+      85px 50px 0 4px var(--black),
+      90px 50px 0 4px var(--black),
+      95px 50px 0 4px var(--black),
+      100px 50px 0 4px var(--black),
+      105px 50px 0 4px var(--black),
+      110px 50px 0 4px var(--black),
+      115px 50px 0 4px var(--black),
+      /* Coffee mug */
+      5px 35px 0 4px var(--black),
+      10px 35px 0 4px var(--black),
+      5px 40px 0 4px var(--black),
+      15px 40px 0 4px var(--black),
+      5px 45px 0 4px var(--black),
+      10px 45px 0 4px var(--black),
+      15px 45px 0 4px var(--black);
+  }
+
+  /* Screen content pixels — show </> */
+  .pixel-coder-screen {
+    position: absolute;
+    top: 20px;
+    left: 90px;
+    width: 1px;
+    height: 1px;
+  }
+
+  .pixel-coder-screen.state-code {
+    /* < character */
+    box-shadow:
+      15px 5px 0 3px var(--white),
+      10px 10px 0 3px var(--white),
+      10px 15px 0 3px var(--white),
+      15px 20px 0 3px var(--white),
+      /* / character */
+      25px 20px 0 3px var(--white),
+      20px 15px 0 3px var(--white),
+      20px 10px 0 3px var(--white),
+      15px 5px 0 3px var(--white),
+      /* > character */
+      25px 5px 0 3px var(--white),
+      30px 10px 0 3px var(--white),
+      30px 15px 0 3px var(--white),
+      25px 20px 0 3px var(--white);
+  }
+
+  .pixel-coder-screen.state-cursor {
+    /* blinking cursor block */
+    box-shadow:
+      15px 10px 0 3px var(--white),
+      20px 10px 0 3px var(--white),
+      15px 15px 0 3px var(--white),
+      20px 15px 0 3px var(--white);
+  }
+
+  /* ============================================================
+     LATEST ARTICLES SECTION
+  ============================================================ */
+  .section-articles {
+    padding: 3rem 0 2rem;
+    border-top: 2px solid var(--black);
+  }
+
+  .section-heading {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    font-family: 'Space Mono', monospace;
+  }
+
+  .articles-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .article-card {
+    border: 2px solid var(--black);
+    padding: 1.5rem;
+    box-shadow: 4px 4px 0 0 var(--black);
+    transition: box-shadow 0.1s, transform 0.1s;
+  }
+
+  .article-card:hover {
+    box-shadow: 2px 2px 0 0 var(--black);
+    transform: translate(2px, 2px);
+  }
+
+  .article-card a {
+    text-decoration: none;
+  }
+
+  .article-card a:hover {
+    background: none;
+    color: var(--black);
+  }
+
+  .article-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+
+  .article-title a:hover {
+    text-decoration: underline;
+  }
+
+  .article-meta {
+    font-size: 0.75rem;
+    margin-bottom: 0.75rem;
+    opacity: 0.7;
+  }
+
+  .article-description {
+    font-size: 0.875rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+  }
+
+  .article-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tag-chip {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 1px 6px;
+    border: 1px solid var(--black);
+    text-decoration: none;
+    color: var(--black);
+  }
+
+  .tag-chip:hover {
+    background-color: var(--black);
+    color: var(--white);
+  }
+
+  .all-articles-link {
+    margin-top: 1rem;
+  }
+
+  /* ============================================================
+     ARTICLES LIST PAGE
+  ============================================================ */
+  .page-heading {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 700;
+    margin: 2rem 0;
+    line-height: 1;
+  }
+
+  .posts-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .post-item {
+    border-top: 2px solid var(--black);
+    padding: 1.5rem 0;
+  }
+
+  .post-item:last-child {
+    border-bottom: 2px solid var(--black);
+  }
+
+  .post-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .post-title a {
+    text-decoration: none;
+  }
+
+  .post-title a:hover {
+    text-decoration: underline;
+    background: none;
+    color: var(--black);
+  }
+
+  .post-meta {
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.7;
+  }
+
+  .post-description {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    max-width: 680px;
+  }
+
+  /* ============================================================
+     SINGLE POST
+  ============================================================ */
+  .post-header {
+    padding: 2rem 0 1.5rem;
+    border-bottom: 2px solid var(--black);
+    margin-bottom: 2rem;
+  }
+
+  .post-header h1 {
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    margin-bottom: 0.75rem;
+  }
+
+  .post-header .post-meta {
+    font-size: 0.8rem;
+    opacity: 0.7;
+  }
+
+  .post-body {
+    max-width: 700px;
+    font-size: 0.95rem;
+    line-height: 1.9;
+  }
+
+  .post-body h2 {
+    font-size: 1.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--black);
+    padding-bottom: 0.5rem;
+  }
+
+  .post-body h3 {
+    font-size: 1.2rem;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .post-body p {
+    margin-bottom: 1.25rem;
+  }
+
+  .post-body ul, .post-body ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .post-body li {
+    margin-bottom: 0.5rem;
+  }
+
+  .post-nav {
+    display: flex;
+    justify-content: space-between;
+    border-top: 2px solid var(--black);
+    padding: 1.5rem 0;
+    margin-top: 3rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    gap: 1rem;
+  }
+
+  .post-nav a {
+    text-decoration: none;
+  }
+
+  .post-nav a:hover {
+    text-decoration: underline;
+    background: none;
+    color: var(--black);
+  }
+
+  /* ============================================================
+     ABOUT / PROJECTS PAGES
+  ============================================================ */
+  .static-page {
+    max-width: 700px;
+    padding: 2rem 0;
+  }
+
+  .static-page h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 2rem;
+    line-height: 1;
+  }
+
+  .project-entry {
+    border-top: 2px solid var(--black);
+    padding: 1.25rem 0;
+  }
+
+  .project-entry:last-child {
+    border-bottom: 2px solid var(--black);
+  }
+
+  .project-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+
+  .project-desc {
+    font-size: 0.875rem;
+    opacity: 0.8;
+  }
+
+  /* ============================================================
+     FOOTER SOCIAL ICONS
+  ============================================================ */
+  .footer-social {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .social-icon {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    opacity: 0.75;
+    transition: opacity 0.1s;
+  }
+
+  .social-icon:hover {
+    opacity: 1;
+    background: none;
+    color: inherit;
+  }
+
+  /* ============================================================
+     INVERTED SUB-PAGES
+  ============================================================ */
+  body.page-inverted {
+    background-color: var(--black);
+    color: var(--white);
+  }
+
+  body.page-inverted a {
+    color: var(--white);
+  }
+
+  body.page-inverted a:hover {
+    background-color: var(--white);
+    color: var(--black);
+  }
+
+  body.page-inverted hr,
+  body.page-inverted .nav-hr {
+    border-top-color: var(--white);
+  }
+
+  body.page-inverted .site-name {
+    color: var(--white);
+  }
+
+  body.page-inverted .site-name:hover {
+    background: none;
+    color: var(--white);
+  }
+
+  body.page-inverted .site-footer {
+    border-top-color: var(--white);
+  }
+
+  body.page-inverted .btn {
+    color: var(--white);
+    background: var(--black);
+    border-color: var(--white);
+    box-shadow: 3px 3px 0 0 var(--white);
+  }
+
+  body.page-inverted .btn:hover {
+    box-shadow: 1px 1px 0 0 var(--white);
+  }
+
+  body.page-inverted .btn:active {
+    box-shadow: 0 0 0 0 var(--white);
+  }
+
+  body.page-inverted .article-card {
+    border-color: var(--white);
+    box-shadow: 4px 4px 0 0 var(--white);
+  }
+
+  body.page-inverted .article-card:hover {
+    box-shadow: 2px 2px 0 0 var(--white);
+  }
+
+  body.page-inverted .tag-chip {
+    border-color: var(--white);
+    color: var(--white);
+  }
+
+  body.page-inverted .tag-chip:hover {
+    background-color: var(--white);
+    color: var(--black);
+  }
+
+  body.page-inverted .post-header {
+    border-bottom-color: var(--white);
+  }
+
+  body.page-inverted .post-nav {
+    border-top-color: var(--white);
+  }
+
+  body.page-inverted .post-nav a:hover {
+    background: none;
+    color: var(--white);
+    text-decoration: underline;
+  }
+
+  body.page-inverted .post-item {
+    border-top-color: var(--white);
+  }
+
+  body.page-inverted .post-item:last-child {
+    border-bottom-color: var(--white);
+  }
+
+  body.page-inverted .section-articles {
+    border-top-color: var(--white);
+  }
+
+  body.page-inverted .post-body h2 {
+    border-bottom-color: var(--white);
+  }
+
+  body.page-inverted .project-entry {
+    border-top-color: var(--white);
+  }
+
+  body.page-inverted .project-entry:last-child {
+    border-bottom-color: var(--white);
+  }
+
+  body.page-inverted code {
+    background-color: var(--white);
+    color: var(--black);
+  }
+
+  body.page-inverted pre {
+    background-color: var(--off-white);
+    color: var(--black);
+    box-shadow: 4px 4px 0 0 var(--white);
+    border-color: var(--white);
+  }
+
+  body.page-inverted pre code {
+    background: none;
+    color: var(--black);
+  }
+
+  body.page-inverted .highlight-tag {
+    background-color: var(--white);
+    color: var(--black);
+  }
+
+  /* ============================================================
+     UTILITY
+  ============================================================ */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+}

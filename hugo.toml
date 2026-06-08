@@ -1,0 +1,27 @@
+baseURL = "https://ericpoirier.ca"
+title = "Eric Poirier"
+languageCode = "en-us"
+theme = "pixel"
+enableRobotsTXT = true
+
+[markup]
+  [markup.highlight]
+    style = "monochrome"
+    lineNos = false
+    tabWidth = 2
+  [markup.goldmark.renderer]
+    unsafe = true
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+[params]
+  description = "Web Development Team Lead at the Eclipse Foundation. Writing about Drupal, open source, and AI."
+  author = "Eric Poirier"
+  github = "https://github.com/ericpoirier"
+  linkedin = "https://linkedin.com/in/ericpoirier"
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
