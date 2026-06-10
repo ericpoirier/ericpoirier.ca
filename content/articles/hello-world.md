@@ -6,7 +6,7 @@ tags: ["meta"]
 draft: false
 ---
 
-I'm Eric Poirier. I'm the web developement team lead at the [Eclipse Foundation](https://eclipse.org), where I work on the public web infrastructure that supports one of the world's largest open source communities. Most of my days are spent thinking about Drupal, developer experience, and — let's be honest — a lot of AI tooling these days.
+I'm Eric Poirier. I'm the web development team lead at the [Eclipse Foundation](https://eclipse.org), where I work on the public web infrastructure that supports one of the world's largest open source communities. Most of my days are spent thinking about Drupal, developer experience, and — let's be honest — a lot of AI tooling these days.
 
 ## Why I'm building this
 

@@ -1,6 +1,6 @@
 {{ define "main" }}
 <div class="site-wrapper">
-  <h1 class="page-heading">articles.</h1>
+  <h1 class="page-heading">{{ lower .Title }}</h1>
   <ul class="posts-list">
     {{ range .Pages }}
     <li class="post-item">

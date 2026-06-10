@@ -2,7 +2,7 @@
 title: "Projects"
 date: 2024-01-01
 description: "Open source projects and tools I've built or contributed to."
-draft: false
+draft: true
 type: "page"
 layout: "projects"
 ---
