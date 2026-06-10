@@ -15,7 +15,7 @@ This is a personal blog covering hands-on experiences, opinions, and practical g
 ### Blog Stack
 
 * **Static site generator:** Hugo
-* **CSS / Grid system:** Tailwind CSS
+* **CSS:** Less — custom `pixel` theme, source at `themes/pixel/assets/less/main.less`
 * **Deployment:** GitHub Pages
 
 ### Language
@@ -126,7 +126,7 @@ tags: []
 draft: false
 ```
 
-* **Tags:** Use lowercase, hyphenated slugs (e.g., `drupal`, `ai-tools`, `hugo`, `tailwind`, `web-dev`). Keep the tag list small and reusable — avoid one-off tags.
+* **Tags:** Use lowercase, hyphenated slugs (e.g., `drupal`, `ai-tools`, `hugo`, `css`, `web-dev`). Keep the tag list small and reusable — avoid one-off tags.
 
 ---
 
