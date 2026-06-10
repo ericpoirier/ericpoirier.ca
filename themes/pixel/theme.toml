@@ -1,10 +1,8 @@
 name = "pixel"
 license = "MIT"
-licenselink = ""
 description = "Brutalist pixel art monospace theme for Hugo"
-homepage = ""
 tags = ["blog", "minimal", "monospace", "brutalist"]
-features = ["", ""]
+features = ["rss", "taxonomies", "custom-404"]
 min_version = "0.120.0"
 
 [author]

@@ -22,6 +22,10 @@ html {
   line-height: 1.6;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
 body {
   background-color: @white;
   color: @black;
@@ -518,6 +522,11 @@ img {
 // ============================================================
 // Single Post
 // ============================================================
+.post-wrapper {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
 .post-header {
   padding: 2rem 0 1.5rem;
   border-bottom: 2px solid @black;
@@ -584,6 +593,8 @@ img {
   }
 }
 
+.post-nav-disabled { opacity: 0.4; }
+
 // ============================================================
 // Static Pages (About, Contact)
 // ============================================================
@@ -596,24 +607,6 @@ img {
     margin-bottom: 2rem;
     line-height: 1;
   }
-}
-
-.project-entry {
-  border-top: 2px solid @black;
-  padding: 1.25rem 0;
-
-  &:last-child { border-bottom: 2px solid @black; }
-}
-
-.project-name {
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin-bottom: 0.25rem;
-}
-
-.project-desc {
-  font-size: 0.875rem;
-  opacity: 0.8;
 }
 
 // ============================================================
@@ -680,8 +673,6 @@ body.page-inverted {
   .post-item:last-child   { border-bottom-color: @white; }
   .section-articles       { border-top-color: @white; }
   .post-body h2           { border-bottom-color: @white; }
-  .project-entry          { border-top-color: @white; }
-  .project-entry:last-child { border-bottom-color: @white; }
 
   .highlight-tag {
     background-color: @white;

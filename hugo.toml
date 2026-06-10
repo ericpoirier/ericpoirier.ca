@@ -20,7 +20,7 @@ enableRobotsTXT = true
   description = "Web Development Team Lead at the Eclipse Foundation. Writing about Drupal, open source, and AI."
   author = "Eric Poirier"
   github = "https://github.com/ericpoirier"
-  linkedin = "https://linkedin.com/in/ericpoirier"
+  linkedin = "https://www.linkedin.com/in/ericpoir/"
 
 [outputs]
   home = ["HTML", "RSS"]

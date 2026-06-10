@@ -4,7 +4,6 @@ date: 2024-01-01
 description: "Eric Poirier — Web Development Team Lead at the Eclipse Foundation."
 draft: false
 type: "page"
-layout: "about"
 ---
 
 I'm Eric Poirier, from Gatineau, Québec, Canada. I've been with the [Eclipse Foundation](https://eclipse.org) for 11 years — this March marked the anniversary — and I recently stepped into the role of Web Development Team Lead.

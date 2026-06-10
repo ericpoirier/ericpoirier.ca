@@ -4,7 +4,6 @@ date: 2024-01-01
 description: "Get in touch with Eric Poirier."
 draft: false
 type: "page"
-layout: "about"
 ---
 
 The best way to reach me is through GitHub or LinkedIn.

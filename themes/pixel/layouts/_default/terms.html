@@ -1,0 +1,15 @@
+{{ define "main" }}
+<div class="site-wrapper">
+  <h1 class="page-heading">{{ lower .Title }}</h1>
+  <ul class="posts-list">
+    {{ range .Pages.ByTitle }}
+    <li class="post-item">
+      <div class="post-title">
+        <a href="{{ .RelPermalink }}">[{{ lower .Title }}]</a>
+      </div>
+      <div class="post-meta">{{ len .Pages }} article{{ if ne (len .Pages) 1 }}s{{ end }}</div>
+    </li>
+    {{ end }}
+  </ul>
+</div>
+{{ end }}

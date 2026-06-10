@@ -8,6 +8,10 @@
 <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
 <meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+{{ with resources.Get "images/developer-pixel.webp" }}<meta property="og:image" content="{{ .Permalink }}">
+{{ end }}<meta name="twitter:card" content="summary">
+<link rel="canonical" href="{{ .Permalink }}">
 
 <!-- RSS autodiscovery -->
 <link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" href="{{ "/index.xml" | absURL }}">
