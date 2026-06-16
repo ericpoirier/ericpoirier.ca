@@ -1,4 +1,4 @@
-baseURL = "https://ericpoirier.ca"
+baseURL = "https://ericpoirier.github.io/ericpoirier.ca/"
 title = "Eric Poirier"
 languageCode = "en-us"
 theme = "pixel"
